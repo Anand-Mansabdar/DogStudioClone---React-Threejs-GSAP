@@ -39,15 +39,31 @@ const HeroDog = () => {
     return texture;
   });
 
+  const [branchMap, branchNormalMap] = useTexture([
+    "/branches_diffuse.jpg",
+    "/branches_normals.jpg",
+  ]).map((texture) => {
+    texture.flipY = true;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  });
+
   const dogMaterial = new THREE.MeshMatcapMaterial({
     normalMap: normalMap,
     matcap: sampleMatCap,
+  });
+
+  const branchMaterial = new THREE.MeshMatcapMaterial({
+    normalMap: branchNormalMap,
+    map: branchMap,
   });
 
   model.scene.traverse((child) => {
     // console.log(child.name);
     if (child.name.includes("DOG")) {
       child.material = dogMaterial;
+    } else {
+      child.material = branchMaterial;
     }
   });
 
@@ -63,7 +79,6 @@ const HeroDog = () => {
         rotation={[0, Math.PI / 3.2, 0]}
       />
       <directionalLight color={0xffffff} intensity={10} position={[0, 5, 5]} />
-      <OrbitControls />
     </>
   );
 };
