@@ -5,11 +5,17 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Camera } from "three";
 import * as THREE from "three";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const HeroDog = () => {
+  gsap.registerPlugin(useGSAP());
+  gsap.registerPlugin(ScrollTrigger);
+
   const model = useGLTF("/models/dog.drc.glb");
 
   useThree(({ camera, scene, gl }) => {
@@ -43,7 +49,7 @@ const HeroDog = () => {
     "/branches_diffuse.jpg",
     "/branches_normals.jpg",
   ]).map((texture) => {
-    texture.flipY = true;
+    texture.flipY = false;
     texture.colorSpace = THREE.SRGBColorSpace;
     return texture;
   });
@@ -66,6 +72,26 @@ const HeroDog = () => {
       child.material = branchMaterial;
     }
   });
+
+  const dogModelRef = useRef(model);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#section-1",
+        endTrigger: "#section-3",
+        start: "top top",
+        end: "bottom bottom",
+        markers: true,
+        scrub: true,
+      },
+    });
+
+    tl.to(dogModelRef.current.scene.position, {
+      z: "-=0.5",
+      y: "+=0.1",
+    });
+  }, []);
 
   return (
     <>
