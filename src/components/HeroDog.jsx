@@ -90,7 +90,26 @@ const HeroDog = () => {
     tl.to(dogModelRef.current.scene.position, {
       z: "-=0.5",
       y: "+=0.1",
-    });
+    })
+      .to(dogModelRef.current.scene.rotation, {
+        x: `+=${Math.PI / 15}`,
+      })
+      .to(
+        dogModelRef.current.scene.rotation,
+        {
+          y: `-=${Math.PI}`,
+        },
+        "third"
+      )
+      .to(
+        dogModelRef.current.scene.position,
+        {
+          x: "-0.3",
+          z: "+=0.59",
+          y: "-=0.04",
+        },
+        "third"
+      );
   }, []);
 
   return (
