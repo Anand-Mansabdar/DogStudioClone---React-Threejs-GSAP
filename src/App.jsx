@@ -122,7 +122,39 @@ const App = () => {
             </div>
           </div>
         </section>
-        <section id="section-3"></section>
+        <section id="section-3">
+          <div className="top">
+            <div className="left">
+              <h3>
+                Lorem ipsum dolor <br /> sit amet <br /> consectetur adipisicing{" "}
+                <br />
+              </h3>
+            </div>
+            <div className="right"></div>
+          </div>
+        </section>
+
+        <section id="section-4">
+          <div className="bottom">
+            <div className="left"></div>
+            <div className="right">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Inventore accusantium asperiores, delectus minus illum incidunt
+                eum, architecto sequi, odio velit quos commodi perferendis ipsa
+                tempora culpa quam fugiat pariatur hic? Placeat delectus commodi
+                consequuntur est.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Inventore accusantium asperiores, delectus minus illum incidunt
+                eum, architecto sequi, odio velit quos commodi perferendis ipsa
+                tempora culpa quam fugiat pariatur hic? Placeat delectus commodi
+                consequuntur est.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
