@@ -7,7 +7,17 @@ const App = () => {
   return (
     <>
       <main>
+        <div className="images">
+          <img id="tomorrowland" src="/tomorrowland.png" />
+          <img id="navy-pier" src="/navy-pier.png" />
+          <img id="msi-chicago" src="/msi-chicago.png" />
+          <img id="louis-phone" src="/louis-phone.png" />
+          <img id="festival-2018" src="/festival-2018.png" />
+          <img id="kennedy-center" src="/kennedy-center.png" />
+          <img id="royal-opera" src="/royal-opera.png" />
+        </div>
         <Canvas
+          id="canvas-element"
           style={{
             height: "100vh",
             width: "100vw",
@@ -15,9 +25,9 @@ const App = () => {
             top: 0,
             left: 0,
             zIndex: 1,
-            backgroundImage: "url(/background-l.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            // backgroundImage: "url(/background-l.png)",
+            // backgroundRepeat: "no-repeat",
+            // backgroundSize: "cover",
           }}
         >
           <HeroDog />
@@ -80,7 +90,38 @@ const App = () => {
           <div className="first-line"></div>
           <div className="second-line"></div>
         </section>
-        <section id="section-2"></section>
+        <section id="section-2">
+          <div className="titles">
+            <div img-title="tomorrowland" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>Tomorrowland</h1>
+            </div>
+            <div img-title="navy-pier" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>Navy Pier</h1>
+            </div>
+            <div img-title="msi-chicago" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>MSI Chicago</h1>
+            </div>
+            <div img-title="louis-phone" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>This was Louises Phone</h1>
+            </div>
+            <div img-title="festival-2018" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>KIKK Festival 2018</h1>
+            </div>
+            <div img-title="kennedy-center" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>The Kennedy Center</h1>
+            </div>
+            <div img-title="royal-opera" className="title">
+              <small>2020 - Ongoing</small>
+              <h1>Royal Opera Of Wallonia</h1>
+            </div>
+          </div>
+        </section>
         <section id="section-3"></section>
       </main>
     </>
